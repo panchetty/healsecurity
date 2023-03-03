@@ -13,3 +13,7 @@ def read_root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
+
+@app.post("/users/{user_id}")
+def send_warning(user_id: int):
+    return {"someone tried to malfunction your login details, reference user id": user_id}
