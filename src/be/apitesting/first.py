@@ -15,7 +15,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
 @app.post("/users")
-async def getInformation(info : Request):
+async def users(info : Request):
     req_info = await info.json()
     return {
         "status" : "SUCCESS",
