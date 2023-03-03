@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/warn_users")
 def read_root():
-    return {"something went wrong!"}
+    return {"Deployed initial piece of Api code!"}
 
 
 @app.get("/items/{item_id}")
