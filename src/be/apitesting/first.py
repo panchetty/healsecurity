@@ -17,3 +17,11 @@ def read_item(item_id: int, q: Union[str, None] = None):
 @app.put("/users/{user_id}")
 def send_warning(user_id: int):
     return {"someone tried to malfunction your login details, reference user id": user_id}
+    
+@app.post("/items")
+async def getInformation(info : Request):
+    req_info = await info.json()
+    return {
+        "status" : "SUCCESS",
+        "data" : req_info
+    }
