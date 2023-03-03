@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FastAPI,Request
 
 app = FastAPI()
 
@@ -17,7 +17,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 @app.put("/users/{user_id}")
 def send_warning(user_id: int):
     return {"someone tried to malfunction your login details, reference user id": user_id}
-    
+
 @app.post("/items")
 async def getInformation(info : Request):
     req_info = await info.json()
