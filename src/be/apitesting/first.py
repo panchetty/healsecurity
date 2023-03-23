@@ -25,4 +25,24 @@ async def users(info : Request):
         "data" : req_info
     }
 
+#it is an api for contact details form..User can fill details here.
+
+@app.post("/contactus")
+async def contactus(info : Request):
+    req_info = await info.json()
+
+    return{
+        "status":"SUCCESS",
+        "data":req_info
+    }
+
+@app.post("/search")
+async def search(info:Request):
+    search_string = await info.json()
+
+    return {
+        "status":"SUCCESS",
+        "data":search_string +"found"
+    }
+
 
