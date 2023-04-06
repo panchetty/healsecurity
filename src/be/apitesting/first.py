@@ -4,6 +4,7 @@ from fastapi import FastAPI,Request,Query
 
 app = FastAPI()
 
+const articles = ["article 1 displays about security measures","article 2 displays about innovative approaches on authenticative measures"]
 
 @app.get("/warn_users")
 def read_root():
@@ -45,4 +46,11 @@ async def search(info:Request):
         "data":search_string +"found"
     }
 
+@app.post("/articles")
+async def articles(info:Request):
+    temp = await info.json()
 
+    return{
+        "status":"SUCCESS",
+        "data":articles
+    }
