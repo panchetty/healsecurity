@@ -5,6 +5,7 @@ from fastapi import FastAPI,Request,Query
 app = FastAPI()
 
 const articles = ["article 1 displays about security measures","article 2 displays about innovative approaches on authenticative measures"]
+const title_array = [{"title":"Details page1","description":"We describe the details of page1 and its pros and cons"},{},{}]
 
 @app.get("/warn_users")
 def read_root():
@@ -54,3 +55,14 @@ async def articles(info:Request):
         "status":"SUCCESS",
         "data":articles
     }
+
+@app.post("/details_page")
+async def details(info:Request):
+    result = await info.json()
+
+    return{
+        "status":"SUCCESS",
+        "data":title_array
+    }
+###Response:---
+# {"status":"SUCCESS","data":[{"title":"Details page1","description":"We describe the details of page1 and its pros and cons"},{},{}]}
