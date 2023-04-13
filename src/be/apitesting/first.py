@@ -56,6 +56,8 @@ async def articles(info:Request):
         "data":articles
     }
 
+###Response:---
+# {"status":"SUCCESS","data":[{"title":"Details page1","description":"We describe the details of page1 and its pros and cons","img-url":"dummy.png"},{},{}]}
 @app.post("/details_page")
 async def details(info:Request):
     result = await info.json()
@@ -64,5 +66,13 @@ async def details(info:Request):
         "status":"SUCCESS",
         "data":title_array
     }
-###Response:---
-# {"status":"SUCCESS","data":[{"title":"Details page1","description":"We describe the details of page1 and its pros and cons","img-url":"dummy.png"},{},{}]}
+
+#this displays the cards related to tags()
+@app.post("/details_page/tags/{tag_id}")
+async def get_tag_cards(tag:Request):
+    result = await tag.json()
+
+    return{
+        "status":"SUCCESS",
+        "data":result
+    }
